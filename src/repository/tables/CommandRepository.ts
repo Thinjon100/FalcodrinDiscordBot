@@ -17,7 +17,7 @@ class CommandRepository extends DbRepository {
     private initAsync = async () => {
         await this.db.exec(`
             CREATE TABLE IF NOT EXISTS commands (
-                guild_id TEXT,
+                guild_id TEXT NOT NULL,
                 name TEXT NOT NULL,
                 enabled INTEGER DEFAULT 1 NOT NULL,
                 logUsage INTEGER DEFAULT 0 NOT NULL,

@@ -24,6 +24,8 @@ class GuildApplicationCommandCreationService {
             return;
         }
 
+        console.log('Creating command:', applicationCommandData[0]);
+
         return await this.createApplicationCommandAsync(guild, applicationCommandData[0]);
     }
 

@@ -24,6 +24,7 @@ class GuildSetupCommandResolver {
 
         // Delete any commands that we no longer have in source code
         const excessRegisteredCommands = guildCommands.filter(gc => rootCommands.find(rc => rc.definition.name == gc.name) === undefined);
+        console.log('Deleting commands:', excessRegisteredCommands);
         const deletePromises = excessRegisteredCommands.map(c => guild.commands.delete(c));
         await Promise.all(deletePromises);
 

@@ -17,7 +17,7 @@ class RoleRepository extends DbRepository {
     private initAsync = async () => {
         await this.db.exec(`
             CREATE TABLE IF NOT EXISTS roles (
-                guild_id TEXT,
+                guild_id TEXT NOT NULL,
                 role_id TEXT PRIMARY KEY,
                 name TEXT NOT NULL,
                 permissions INTEGER,
