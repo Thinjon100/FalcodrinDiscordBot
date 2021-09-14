@@ -33,6 +33,7 @@ class PermissionSetListExecutor implements ICommandExecutor<{}> {
             await executionContext.replyPrivate('There are no permission sets.');
             return;
         }
+
         const embed = new MessageEmbed()
             .setTitle('Permission Sets')
             .setDescription(`${permissionSets.length} permission set(s).`);

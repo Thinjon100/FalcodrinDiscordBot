@@ -9,6 +9,7 @@ import { DefaultTo } from "../ConfigurableSetting";
 import { PermissionSetCreateHandler } from "./permissionSet.create";
 import { PermissionSetListHandler } from "./permissionSet.list";
 import { PermissionSetAllowHandler } from "./permissionSet.allow";
+import { PermissionSetDenyHandler } from "./permissionSet.deny";
 
 @Service()
 class PermissionSetParameterResolver implements ICommandParameterResolver<void> {
@@ -38,6 +39,7 @@ class PermissionSetHandler extends CommandHandler<void> {
             PermissionSetHandler.CommandName + "." + PermissionSetCreateHandler.CommandName,
             PermissionSetHandler.CommandName + "." + PermissionSetListHandler.CommandName,
             PermissionSetHandler.CommandName + "." + PermissionSetAllowHandler.CommandName,
+            PermissionSetHandler.CommandName + "." + PermissionSetDenyHandler.CommandName,
         ],
         adminOnly: true,
         logUsage: new DefaultTo<boolean>(true),

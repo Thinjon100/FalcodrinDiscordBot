@@ -50,6 +50,10 @@ class GuildSetupCommandResolver {
 
     public updateExistingCommandAsync = async(_guild: Guild, _roles: Role[], _channels: GuildChannel[], _command: CommandDefinition, _appCommand: ApplicationCommand) : Promise<void> => {
         //console.log('Handling existing command:', guild.name, roles.length, channels.length, command, appCommand);
+        const optCount = _command.interactions[0].options.length + (_command.childCommands?.length || 0);
+        if (_appCommand.options.length === optCount) return;
+        
+        console.log('Command definition:', _command, 'App command:', _appCommand);
     }
 
     public createMissingCommandAsync = async(guild: Guild, roles: Role[], channels: GuildChannel[], command: CommandDefinition) : Promise<void> => {
